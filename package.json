@@ -8,7 +8,8 @@
   "main": "javascript.js",
   "scripts": {
     "lint": "eslint . --ext .js",
-    "test": "jasmine",
+    "jasmine": "jasmine",
+    "test": "karma start --singleRun",
     "build": "echo \"BUILD OK\" && exit 0",
     "prebuild": "npm run version && npm run test",
     "version": "node version-check.js",
@@ -22,6 +23,9 @@
     "http-server": "^0.11.1",
     "jasmine": "^3.0.0",
     "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-commonjs": "^1.0.0",
+    "karma-jasmine": "^1.1.1",
     "pre-commit": "^1.2.2",
     "semver": "^5.5.0"
   }

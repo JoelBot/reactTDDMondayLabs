@@ -5,15 +5,14 @@ describe('Greet', function() {
   let expected = 'Hello, World';
   expect(actual).toEqual(expected);
  });
-});
 
-describe('Greet without name', function() {
  it('Greet says hello, Friend! when no name is given', function() {
   let actual = sayHello.greet();
   let expected = 'Hello, friend';
   expect(actual).toEqual(expected);
  });
 });
+
 
 describe('Greet with appropriate salutation', function() {
  it('Greet with good morning/afternoon/evening', function() {
