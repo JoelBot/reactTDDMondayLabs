@@ -14,6 +14,6 @@ exports.salutation = function salutation(time) {
 		return 'Good afternoon!';
 	}
 	else {
-		return 'Good evening!'
+		return 'Good evening!';
 	}
 };
