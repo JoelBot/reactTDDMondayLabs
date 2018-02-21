@@ -9,6 +9,15 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: './dist/scripts/app.js'
 	},
+	module : {
+		loaders: [ {
+			test : /.js$/,
+			loader : 'babel-loader',
+			query: {
+				presets: ['es2015']
+			}
+		}]
+	},
 	plugins: [
 		new CleanWebpackPlugin('dist'),
 		new HTMLWebpackplugin({
