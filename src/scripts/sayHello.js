@@ -1,12 +1,10 @@
-exports.greet = function greet(name) {
-	if (name == null) {
-		return 'Hello, friend';
-	} else {
-		return 'Hello, ' + name;
-	}
+export let greet = (name) => {
+	name = name ? name : 'friend';
+	return 'Hello, ' + name;
+
 };
 
-exports.salutation = function salutation(time) {
+export let salutation = (time) => {
 	if (time < 12) {
 		return 'Good morning!';
 	} 

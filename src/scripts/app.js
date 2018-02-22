@@ -1,6 +1,6 @@
-var sayHello = require('./sayHello.js');
+import * as sayHello from './sayHello.js';
 
 // document.getElementById('Welcome-message').innerHTML = sayHello.greet('Joel');
-window.addEventListener('load',() =>{
+window.addEventListener('load',() => {
 	document.getElementById('welcome-message').innerHTML = sayHello.greet('Joel');
 });

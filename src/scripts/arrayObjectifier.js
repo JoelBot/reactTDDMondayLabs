@@ -1,4 +1,4 @@
-exports.pass = function pass(listOfNumbers) {
+export function pass(listOfNumbers) {
 	let newList = listOfNumbers;
 	return newList.sort();
 };

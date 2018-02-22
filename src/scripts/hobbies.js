@@ -1,4 +1,4 @@
-exports.list = function list(direction) {
+export function list(direction) {
 
 	let theList = ['run', 'eat', 'jump'];
 	let reorderedList;
@@ -12,4 +12,4 @@ exports.list = function list(direction) {
 	}
 
 	return reorderedList;
-};
+}
