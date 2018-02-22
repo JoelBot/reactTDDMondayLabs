@@ -22,6 +22,7 @@ module.exports = {
             "warn",
             "tab"
         ],
+        "no-unused-vars": 0,
         "linebreak-style": [
             "error",
             "unix"
@@ -36,6 +37,9 @@ module.exports = {
         ],
         "no-console": [
             "off"
-        ]
+        ],
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1,
+        "react/react-in-jsx-scope": 1,
     }
 };
