@@ -1,6 +1,6 @@
-import * as sayHello from './sayHello.js';
+/*eslint-disable no-unused-vars*/
+// import { Component } from 'react';
+import ReactDOM from 'react-dom';
+import SayHello from './SayHello';
 
-// document.getElementById('Welcome-message').innerHTML = sayHello.greet('Joel');
-window.addEventListener('load',() => {
-	document.getElementById('welcome-message').innerHTML = sayHello.greet('Joel');
-});
+ReactDOM.render(<SayHello name="Joel"/>,document.getElementById('app'));

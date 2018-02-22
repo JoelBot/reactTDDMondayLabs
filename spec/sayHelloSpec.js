@@ -1,4 +1,4 @@
-import * as sayHello from '../src/scripts/sayHello.js';
+import * as sayHello from '../src/scripts/SayHello.js';
 describe('Greet', () => {
 	it('concats Hello and a name', () => {
 		let actual = sayHello.greet('World');
