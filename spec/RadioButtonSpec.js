@@ -2,16 +2,17 @@ import React from 'react';
 import TestUtils from 'react-dom/test-utils';
 import RadioButton from '../src/components/RadioButton.js';
 
-describe('Poll Answer', function() {
+describe('Radio Button', function() {
 	var component;
 	beforeEach(function(){
 		component = TestUtils.renderIntoDocument(
-			<RadioButton text="Answer 1" />
+			<RadioButton label = "Answer 1" />
 		);
 	});
 
 	it('renders without problems', function() {
-		expect(component).toEqual(jasmine.anything());
+		var radiobutton = TestUtils.renderIntoDocument(<RadioButton />);
+		expect(radiobutton).toEqual(jasmine.anything());
 	});
 
 	it('prints a message', function() {
