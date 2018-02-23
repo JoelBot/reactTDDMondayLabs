@@ -1,12 +1,15 @@
 import React from 'react';
 import TestUtils from 'react-dom/test-utils';
 import PollQuestion from '../src/components/PollQuestion.js';
+import TestWrapper from '../src/components/TestWrapper';
 
 describe('Poll Question', function() {
 	var component;
 	beforeEach(function(){
 		component = TestUtils.renderIntoDocument(
-			<PollQuestion text="What is the question?" />
+			<TestWrapper>
+				<PollQuestion text="What is the question?" />
+			</TestWrapper>
 		);
 	});
 	it('renders without problems', function() {

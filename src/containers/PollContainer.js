@@ -4,6 +4,7 @@ import PollQuestion from '../components/PollQuestion.js';
 import RadioButton from '../components/RadioButton.js';
 import PollSubmitButton from '../components/PollSubmitButton.js';
 import RadioButtonGroup from '../components/RadioButtonGroup';
+import data from '../data/data.json';
 
 class PollContainer extends React.Component {
 	constructor(){
@@ -29,25 +30,25 @@ class PollContainer extends React.Component {
 			borderRadius: '6px',
 			padding: '10px'
 		};
-		const choices = [
-			{value: 'Tacos', label: 'Tacos'},
-			{value: 'Pizza', label: 'Pizza'},
-			{value: 'Cheese', label: 'Cheese'}
-		];
+		// const choices = [
+		// 	{value: 'Tacos', label: 'Tacos'},
+		// 	{value: 'Pizza', label: 'Pizza'},
+		// 	{value: 'Cheese', label: 'Cheese'}
+		// ];
 
 		return (
 			<div className="container">
 				<div className="jumbotron">
-					<PollHeader text={this.state.header} />
+					<PollHeader text={data.poll.header} />
 				</div>
 				<div className="row" style={rowStyle}>
 					<div className="col-sm-4 col-sm-offset-4">
 						<form>
-							<PollQuestion text={this.state.question} />
+							<PollQuestion text={data.poll.questions[0].question} />
 							<RadioButtonGroup 
 								name='answer'
 								checkedValue={this.state.checkedValue}
-								choices={choices} onChange={this.setCheckedValue}/>
+								choices={data.poll.questions[0].choices} onChange={this.setCheckedValue}/>
 							<PollSubmitButton />
 						</form>
 					</div>
