@@ -4,23 +4,68 @@ import PollQuestion from '../components/PollQuestion.js';
 import RadioButton from '../components/RadioButton.js';
 import PollSubmitButton from '../components/PollSubmitButton.js';
 import RadioButtonGroup from '../components/RadioButtonGroup';
-import data from '../data/data.json';
+import AnswerCheck from '../components/AnswerCheck';
+
+import $ from 'jquery';
+
 
 class PollContainer extends React.Component {
 	constructor(){
 		super();
 		this.setCheckedValue = this.setCheckedValue.bind(this);
 		this.state = {
-			header: 'Welcome to the poll!',
-			question: 'What is the best?',
-			correctAnswer: 'Pizzas',
+			header: '',
+			question: '',
+			correctAnswer: '',
+			choices: [],
 			checkedValue: ''
 		};
+		this.checkAnswer = this.checkAnswer.bind(this);
+	}
+	componentWillMount() {
+		console.log('componentWillMount()');
+	}
+	componentDidMount(){
+		console.log('componentDidMount');
+		this.serverRequest = 
+			$.get('http://localhost:8080/data/data.json', 
+				function (result) {
+					var data = result;
+					this.setState({
+						header: data.poll.header,
+						question: data.poll.questions[0].question,
+						choices: data.poll.questions[0].choices,
+						correctAnswer: data.poll.questions[0].correctAnswer
+					});
+				}.bind(this));
+	}
+	componentWillReceiveProps() {
+		console.log('componentWillReceiveProps()');
+	}
+	shouldComponentUpdate() {
+		console.log('shouldComponentUpdate()');
+		return true;
+	}
+	componentWillUpdate() {
+		console.log('componentWillUpdate()');
+	}
+	componentDidUpdate() {
+		console.log('componentDidUpdate()');
+		// this.checkAnswer(this.state.checkedValue);
+	}
+	componentWillUnmount() {
+		console.log('componentWillUnmount()');
 	}
 
 	setCheckedValue(value) {
 		this.setState({checkedValue: value});
 		console.log('current choice: ' + value);
+	}
+
+	checkAnswer() {
+		if (this.state.checkedValue===this.state.correctAnswer) {
+			console.log('Current choice is correct!');
+		}
 	}
 
 	render() {
@@ -30,25 +75,24 @@ class PollContainer extends React.Component {
 			borderRadius: '6px',
 			padding: '10px'
 		};
-		// const choices = [
-		// 	{value: 'Tacos', label: 'Tacos'},
-		// 	{value: 'Pizza', label: 'Pizza'},
-		// 	{value: 'Cheese', label: 'Cheese'}
-		// ];
 
 		return (
 			<div className="container">
 				<div className="jumbotron">
-					<PollHeader text={data.poll.header} />
+					<PollHeader text={this.state.header} />
 				</div>
 				<div className="row" style={rowStyle}>
 					<div className="col-sm-4 col-sm-offset-4">
 						<form>
-							<PollQuestion text={data.poll.questions[0].question} />
+							<PollQuestion text={this.state.question} />
 							<RadioButtonGroup 
 								name='answer'
 								checkedValue={this.state.checkedValue}
-								choices={data.poll.questions[0].choices} onChange={this.setCheckedValue}/>
+								choices={this.state.choices} onChange={this.setCheckedValue} onClick={this.checkAnswer()}
+							/>
+							<AnswerCheck checkedValue={this.state.checkedValue}
+								correctAnswer={this.state.correctAnswer}
+							/>
 							<PollSubmitButton />
 						</form>
 					</div>
