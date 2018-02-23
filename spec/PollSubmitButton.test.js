@@ -14,7 +14,7 @@ describe('Poll Submit Button', function() {
 	});
 });
 
-describe('Poll Submit Button', function() {
+describe('Poll Submit Button Again', function() {
 
 
 	it('renders without a problem', function () {
@@ -23,7 +23,8 @@ describe('Poll Submit Button', function() {
 	});
 
 	it('calls handler function on click', function () {
-		var handleClick = jest.fn();
+		const PollSubmitButton = require('../src/components/PollSubmitButton').default;
+		var handleClick = jest.getMockFunction();
 		var pollsubmitbutton = TestUtils
 			.renderIntoDocument(
 				<PollSubmitButton
