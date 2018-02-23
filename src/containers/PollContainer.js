@@ -93,7 +93,7 @@ class PollContainer extends React.Component {
 							<AnswerCheck checkedValue={this.state.checkedValue}
 								correctAnswer={this.state.correctAnswer}
 							/>
-							<PollSubmitButton />
+							<PollSubmitButton handleClick={this.checkAnswer} />
 						</form>
 					</div>
 				</div>
